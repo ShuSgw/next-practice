@@ -1,9 +1,19 @@
-import Layout from "../components/MyLayout";
+// import Layout from "../components/MyLayout";
 
-export default function Index() {
-  return (
-    <Layout>
-      <p>Index Page</p>
-    </Layout>
-  );
-}
+// const Index = () => {
+//   return (
+//     <Layout>
+//       <p>Index Page</p>
+//     </Layout>
+//   );
+// };
+
+// export default Index;
+
+import withLayout from "../components/MyLayout";
+
+const Page = () => {
+  return <p>This is Index</p>;
+};
+
+export default withLayout(Page);
