@@ -12,6 +12,11 @@
 
 import withLayout from "../components/MyLayout";
 
-const Page = () => <p>This is the about page</p>;
+const Page = () => (
+  <div>
+    <h1>About</h1>
+    <p>This is about page</p>
+  </div>
+);
 
 export default withLayout(Page);

@@ -12,9 +12,13 @@ const PostLink = (props) => (
 
 const Blog = () => {
   return (
-    <ul>
-      <PostLink title="Hello World" />
-    </ul>
+    <div>
+      <h1>Blog List</h1>
+      <ul>
+        <PostLink title="Hello World" />
+        <PostLink title="Learn Next.js" />
+      </ul>
+    </div>
   );
 };
 
