@@ -1,9 +1,22 @@
-import Layout from "../components/MyLayout";
+// import Layout from "../components/MyLayout";
 
-export default function About() {
-  return (
-    <Layout>
-      <p>About Page</p>
-    </Layout>
-  );
-}
+// const About = () => {
+//   return (
+//     <Layout>
+//       <p>About Page</p>
+//     </Layout>
+//   );
+// };
+
+// export default About;
+
+import withLayout from "../components/MyLayout";
+
+const Page = () => (
+  <div>
+    <h1>About</h1>
+    <p>This is about page</p>
+  </div>
+);
+
+export default withLayout(Page);

@@ -110,50 +110,88 @@ var _jsxFileName = "/Users/shuhei/Desktop/next-practice/components/Header.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const linkStyle = {
-  marginRight: 15
-};
 
 const Header = () => __jsx("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8,
+    lineNumber: 4,
     columnNumber: 3
+  }
+}, __jsx("ul", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 5,
+    columnNumber: 5
+  }
+}, __jsx("li", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 6,
+    columnNumber: 7
   }
 }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9,
-    columnNumber: 5
+    lineNumber: 7,
+    columnNumber: 9
   }
 }, __jsx("a", {
-  style: linkStyle,
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10,
+    lineNumber: 8,
+    columnNumber: 11
+  }
+}, "Home"))), __jsx("li", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11,
     columnNumber: 7
   }
-}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/about",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 12,
-    columnNumber: 5
+    columnNumber: 9
   }
 }, __jsx("a", {
-  style: linkStyle,
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 13,
+    columnNumber: 11
+  }
+}, "About"))), __jsx("li", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 16,
     columnNumber: 7
   }
-}, "About")));
+}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/blog",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 17,
+    columnNumber: 9
+  }
+}, __jsx("a", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 18,
+    columnNumber: 11
+  }
+}, "Blog")))));
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -174,25 +212,42 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/shuhei/Desktop/next-practice/components/MyLayout.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+ // const Layout = (props) => (
+//   <div>
+//     <Header />
+//     {props.children}
+//   </div>
+// );
+// export default Layout;
 
+const widhLayout = Page => {
+  return () => {
+    return __jsx("div", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 7
+      }
+    }, console.log(Page), __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 9
+      }
+    }), __jsx(Page, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 9
+      }
+    }));
+  };
+};
 
-const Layout = props => __jsx("div", {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 4,
-    columnNumber: 3
-  }
-}, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 5,
-    columnNumber: 5
-  }
-}), props.children);
-
-/* harmony default export */ __webpack_exports__["default"] = (Layout);
+/* harmony default export */ __webpack_exports__["default"] = (widhLayout);
 
 /***/ }),
 
@@ -1880,31 +1935,37 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_MyLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MyLayout */ "./components/MyLayout.js");
 var _jsxFileName = "/Users/shuhei/Desktop/next-practice/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+// Props
+// import Layout from "../components/MyLayout";
+// const Index = () => {
+//   return (
+//     <Layout>
+//       <p>Index Page</p>
+//     </Layout>
+//   );
+// };
+// export default Index;
+// high order component
 
-function Index() {
-  return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __self: this,
+
+const Page = () => {
+  return __jsx("p", {
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 5
+      lineNumber: 15,
+      columnNumber: 10
     }
-  }, __jsx("p", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 7
-    }
-  }, "Index Page"));
-}
+  }, "This is Index");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"])(Page));
 
 /***/ }),
 
