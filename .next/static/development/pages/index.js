@@ -4443,7 +4443,7 @@ var Page = function Page() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fshuhei%2FDesktop%2Fnext-practice%2Fpages%2Findex.js ***!
   \*******************************************************************************************************************************/
@@ -4466,5 +4466,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
