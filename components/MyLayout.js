@@ -13,7 +13,6 @@ const widhLayout = (Page) => {
   return () => {
     return (
       <div>
-        {console.log(Page)}
         <Header />
         <Page />
       </div>
