@@ -1,19 +1,21 @@
-// import Layout from "../components/MyLayout";
+import Layout from "../components/MyLayout";
+import useSWR from "swr";
 
-// const Index = () => {
-//   return (
-//     <Layout>
-//       <p>Index Page</p>
-//     </Layout>
-//   );
-// };
+const fetcher = (url) => fetch(url).then((r) => r.json());
+const Index = () => {
+  const { data, error } = useSWR("/api/randomQuote", fetcher);
+  // const author = data.author;
+  const author = data?.author;
+  let quote = data?.quote;
 
-// export default Index;
+  if (!data) quote = "Loading...";
+  if (error) quote = "Failed to fetch the quote.";
 
-import withLayout from "../components/MyLayout";
-
-const Page = () => {
-  return <p>This is Index</p>;
+  return (
+    <Layout>
+      <p>Index Page</p>
+    </Layout>
+  );
 };
 
-export default withLayout(Page);
+export default Index;

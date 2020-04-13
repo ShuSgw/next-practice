@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -169,42 +169,25 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/shuhei/Desktop/next-practice/components/MyLayout.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
- // const Layout = (props) => (
-//   <div>
-//     <Header />
-//     {props.children}
-//   </div>
-// );
-// export default Layout;
 
-const widhLayout = Page => {
-  return () => {
-    return __jsx("div", {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15,
-        columnNumber: 7
-      }
-    }, console.log(Page), __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 17,
-        columnNumber: 9
-      }
-    }), __jsx(Page, {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 18,
-        columnNumber: 9
-      }
-    }));
-  };
-};
 
-/* harmony default export */ __webpack_exports__["default"] = (widhLayout);
+const Layout = props => __jsx("div", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 4,
+    columnNumber: 3
+  }
+}, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 5,
+    columnNumber: 5
+  }
+}), props.children);
+
+/* harmony default export */ __webpack_exports__["default"] = (Layout);
 
 /***/ }),
 
@@ -1895,36 +1878,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_MyLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MyLayout */ "./components/MyLayout.js");
+/* harmony import */ var swr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swr */ "swr");
+/* harmony import */ var swr__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(swr__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/shuhei/Desktop/next-practice/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-// import Layout from "../components/MyLayout";
-// const Index = () => {
-//   return (
-//     <Layout>
-//       <p>Index Page</p>
-//     </Layout>
-//   );
-// };
-// export default Index;
 
 
-const Page = () => {
-  return __jsx("p", {
+
+const fetcher = url => fetch(url).then(r => r.json());
+
+const Index = () => {
+  const {
+    data,
+    error
+  } = swr__WEBPACK_IMPORTED_MODULE_2___default()("/api/randomQuote", fetcher); // const author = data.author;
+
+  const author = data === null || data === void 0 ? void 0 : data.author;
+  let quote = data === null || data === void 0 ? void 0 : data.quote;
+  if (!data) quote = "Loading...";
+  if (error) quote = "Failed to fetch the quote.";
+  return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 5
+    }
+  }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16,
-      columnNumber: 10
+      columnNumber: 7
     }
-  }, "This is Index");
+  }, "Index Page"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"])(Page));
+/* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -1977,6 +1972,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-is");
+
+/***/ }),
+
+/***/ "swr":
+/*!**********************!*\
+  !*** external "swr" ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("swr");
 
 /***/ }),
 
