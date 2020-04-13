@@ -1,4 +1,5 @@
 import Layout from "../components/MyLayout";
+<<<<<<< HEAD
 import Link from "next/link";
 
 function getPosts() {
@@ -45,6 +46,23 @@ const Index = () => {
           opacity: 0.6;
         }
       `}</style>
+=======
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((r) => r.json());
+const Index = () => {
+  const { data, error } = useSWR("/api/randomQuote", fetcher);
+  // const author = data.author;
+  const author = data?.author;
+  let quote = data?.quote;
+
+  if (!data) quote = "Loading...";
+  if (error) quote = "Failed to fetch the quote.";
+
+  return (
+    <Layout>
+      <p>Index Page</p>
+>>>>>>> 3d09bf74e863ba6122db5ee98fbe0d597034e919
     </Layout>
   );
 };
