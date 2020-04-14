@@ -6569,31 +6569,48 @@ var fetcher = function fetcher(url) {
 };
 
 var Index = function Index() {
-  var _useSWR = Object(swr__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/randomQuote", fetcher),
+  var _useSWR = Object(swr__WEBPACK_IMPORTED_MODULE_2__["default"])("/api/allQuote", fetcher),
       data = _useSWR.data,
-      error = _useSWR.error; // const author = data.author;
+      error = _useSWR.error;
 
+  var lists = "";
 
-  var author = data === null || data === void 0 ? void 0 : data.author;
-  var quote = data === null || data === void 0 ? void 0 : data.quote;
-  if (!data) quote = "Loading...";
-  if (error) quote = "Failed to fetch the quote.";
+  if (!data) {
+    lists = "Loading";
+  } else {
+    lists = data.map(function (list, key) {
+      return __jsx("li", {
+        key: key,
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 14
+        }
+      }, list.author);
+    });
+  }
+
   return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 17,
       columnNumber: 5
     }
   }, __jsx("p", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 18,
       columnNumber: 7
     }
+<<<<<<< HEAD
   }, "Index Page"));
 >>>>>>> 3d09bf74e863ba6122db5ee98fbe0d597034e919
+=======
+  }, "Index Page"), lists);
+>>>>>>> f20fa06621dca169e8ea0b7beb021ae8431da4da
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);

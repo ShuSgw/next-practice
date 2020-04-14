@@ -51,18 +51,24 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 const Index = () => {
-  const { data, error } = useSWR("/api/randomQuote", fetcher);
-  // const author = data.author;
-  const author = data?.author;
-  let quote = data?.quote;
-
-  if (!data) quote = "Loading...";
-  if (error) quote = "Failed to fetch the quote.";
+  const { data, error } = useSWR("/api/allQuote", fetcher);
+  let lists = "";
+  if (!data) {
+    lists = "Loading";
+  } else {
+    lists = data.map((list, key) => {
+      return <li key={key}>{list.author}</li>;
+    });
+  }
 
   return (
     <Layout>
       <p>Index Page</p>
+<<<<<<< HEAD
 >>>>>>> 3d09bf74e863ba6122db5ee98fbe0d597034e919
+=======
+      {lists}
+>>>>>>> f20fa06621dca169e8ea0b7beb021ae8431da4da
     </Layout>
   );
 };
