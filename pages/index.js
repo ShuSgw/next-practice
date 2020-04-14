@@ -3,17 +3,20 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 const Index = () => {
-  const { data, error } = useSWR("/api/randomQuote", fetcher);
-  // const author = data.author;
-  const author = data?.author;
-  let quote = data?.quote;
-
-  if (!data) quote = "Loading...";
-  if (error) quote = "Failed to fetch the quote.";
+  const { data, error } = useSWR("/api/allQuote", fetcher);
+  let lists = "";
+  if (!data) {
+    lists = "Loading";
+  } else {
+    lists = data.map((list, key) => {
+      return <li key={key}>{list.author}</li>;
+    });
+  }
 
   return (
     <Layout>
       <p>Index Page</p>
+      {lists}
     </Layout>
   );
 };

@@ -1892,27 +1892,40 @@ const Index = () => {
   const {
     data,
     error
-  } = swr__WEBPACK_IMPORTED_MODULE_2___default()("/api/randomQuote", fetcher); // const author = data.author;
+  } = swr__WEBPACK_IMPORTED_MODULE_2___default()("/api/allQuote", fetcher);
+  let lists = "";
 
-  const author = data === null || data === void 0 ? void 0 : data.author;
-  let quote = data === null || data === void 0 ? void 0 : data.quote;
-  if (!data) quote = "Loading...";
-  if (error) quote = "Failed to fetch the quote.";
+  if (!data) {
+    lists = "Loading";
+  } else {
+    lists = data.map((list, key) => {
+      return __jsx("li", {
+        key: key,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 14
+        }
+      }, list.author);
+    });
+  }
+
   return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 17,
       columnNumber: 5
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 18,
       columnNumber: 7
     }
-  }, "Index Page"));
+  }, "Index Page"), lists);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
